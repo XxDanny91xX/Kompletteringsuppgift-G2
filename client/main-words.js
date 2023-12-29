@@ -9,24 +9,22 @@ async function search() {
     // read the json
     let rawData = await fetch('/api/words/' + searchTerm + '/' + searchType);
     // convert json to a javascript data structure
-    let pdfs = await rawData.json();
+    let words = await rawData.json();
     // create an variable name that initially is an empty string
     let html = `
       <p>You searched for "${searchTerm}"...</p>
-      <p>Found ${pdfs.length} words.</p>
+      <p>Found ${words.length} words.</p>
     `;
     // loop through the found songs
-    for (let pdf of pdfs) {
-      let meta = pdf.metadata.info;
-      console.log(pdf.fileName);
+    for (let word of words) {
+      let meta = word.metadata;
+      console.log(word.fileName);
       html += `
         <section>
           <h2 class= "red-title">${meta.Title}</h2>
           <p><b>Author:</b> ${meta.Author}</p>
-          <p><b>Creator:</b> ${meta.Creator}</p>  
-          <p><b>Amount Pages:</b> ${pdf.metadata.numpages}</p>
-          <p><a target="_blank" href="pdfs/${pdf.fileName}">Open PDF</a>
-          </p>
+          <p><b>Created by:</b> ${meta.createdBy}</p>  
+          <p><b>Modified by:</b> ${word.metadata.modifiedBy}</p>
         </section>
       `;
     }
