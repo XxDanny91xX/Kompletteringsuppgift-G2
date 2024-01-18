@@ -22,7 +22,7 @@ async function search() {
     html += `
       <section>
         <h2 class= "red-title">${meta.title}</h2>
-        <p><b>Author:</b> ${meta.Author}</p>
+        <p><b>Author:</b> ${meta.company}</p>
         <p><b>Created by:</b> ${meta.createdBy}</p>  
         <p><b>Modified by:</b> ${word.metadata.modifiedBy}</p>
       </section>
