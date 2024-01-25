@@ -25,6 +25,8 @@ async function search() {
         <p><b>Author:</b> ${meta.company}</p>
         <p><b>Created by:</b> ${meta.createdBy}</p>  
         <p><b>Modified by:</b> ${word.metadata.modifiedBy}</p>
+        <p><a target="_blank" href="words/${words.filename}">Open WORD</a>
+        </p>
       </section>
     `;
   }
