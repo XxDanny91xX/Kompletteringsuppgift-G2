@@ -174,7 +174,7 @@ app.get('/api/words/:searchTerm/:searchType', async (request, response) => {
   let sql = `
      SELECT * 
      FROM words
-     WHERE LOWER(metadata -> '$.common.${searchType}') LIKE LOWER (?)
+     WHERE LOWER(metadata -> '$.${searchType}') LIKE LOWER (?)
     `;
   
     // since the sql gets a bit different if you want to search all
@@ -190,6 +190,4 @@ app.get('/api/words/:searchTerm/:searchType', async (request, response) => {
     // Send a response to the client
     response.json(result);
     // Log the result of inserting in the database
-    console.log(file, result);
   });
-  

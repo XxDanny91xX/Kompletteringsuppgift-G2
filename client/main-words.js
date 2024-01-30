@@ -24,8 +24,8 @@ async function search() {
         <h2 class= "red-title">${meta.title}</h2>
         <p><b>Author:</b> ${meta.company}</p>
         <p><b>Created by:</b> ${meta.createdBy}</p>  
-        <p><b>Modified by:</b> ${word.metadata.modifiedBy}</p>
-        <p><a target="_blank" href="words/${words.filename}">Open WORD</a>
+        <p><b>Modified by:</b> ${meta.modifiedBy}</p>
+        <p><a target="_blank" href="words/${word.filename}">Open WORD</a>
         </p>
       </section>
     `;
